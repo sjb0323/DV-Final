@@ -1,0 +1,346 @@
+timestamp,name,packageName,isSystemApp,type,isUpdatedSystemApp,convertTime,ID
+33074.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:11:14,P0701
+33631.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 09:20:31,P0701
+33952.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:25:52,P0701
+34044.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 09:27:24,P0701
+34182.0,시계,com.sec.android.app.clockpackage,True,USER_INTERACTION,True,2000-01-01 09:29:42,P0701
+35163.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 09:46:03,P0701
+35212.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 09:46:52,P0701
+35335.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 09:48:55,P0701
+35353.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:49:13,P0701
+36052.0,Polar Beat,fi.polar.beat,False,USER_INTERACTION,False,2000-01-01 10:00:52,P0701
+37675.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:27:55,P0701
+41652.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:34:12,P0701
+43751.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 12:09:11,P0701
+47252.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 13:07:32,P0701
+47253.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 13:07:33,P0701
+50468.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 14:01:08,P0701
+50473.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:01:13,P0701
+51783.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:23:03,P0701
+52122.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:28:42,P0701
+54559.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 15:09:19,P0701
+54843.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 15:14:03,P0701
+55003.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 15:16:43,P0701
+60065.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 16:41:05,P0701
+61466.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 17:04:26,P0701
+61919.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:11:59,P0701
+62097.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:14:57,P0701
+62098.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:14:58,P0701
+62111.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:15:11,P0701
+62303.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 17:18:23,P0701
+62872.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 17:27:52,P0701
+63184.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:33:04,P0701
+64004.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:46:44,P0701
+65902.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:18:22,P0701
+70565.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:36:05,P0701
+70723.0,설정,com.android.settings,True,USER_INTERACTION,False,2000-01-01 19:38:43,P0701
+75429.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 20:57:09,P0701
+75695.0,설정,com.android.settings,True,USER_INTERACTION,False,2000-01-01 21:01:35,P0701
+76047.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 21:07:27,P0701
+76320.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 21:12:00,P0701
+76719.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 21:18:39,P0701
+79601.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:06:41,P0701
+79603.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:06:43,P0701
+79798.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:09:58,P0701
+80994.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:29:54,P0701
+81301.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:35:01,P0701
+81418.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 22:36:58,P0701
+81425.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:37:05,P0701
+81493.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:38:13,P0701
+81608.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:40:08,P0701
+81624.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 22:40:24,P0701
+81746.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:42:26,P0701
+82011.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:46:51,P0701
+82553.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:55:53,P0701
+84126.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 23:22:06,P0701
+115373.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 08:02:53,P0701
+118774.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 08:59:34,P0701
+118777.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 08:59:37,P0701
+33074.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:11:14,P0701
+33631.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 09:20:31,P0701
+33952.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:25:52,P0701
+34044.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 09:27:24,P0701
+34182.0,시계,com.sec.android.app.clockpackage,True,USER_INTERACTION,True,2000-01-01 09:29:42,P0701
+35163.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 09:46:03,P0701
+35212.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 09:46:52,P0701
+35335.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 09:48:55,P0701
+35353.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:49:13,P0701
+36052.0,Polar Beat,fi.polar.beat,False,USER_INTERACTION,False,2000-01-01 10:00:52,P0701
+37675.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:27:55,P0701
+41652.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:34:12,P0701
+43751.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 12:09:11,P0701
+47252.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 13:07:32,P0701
+47253.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 13:07:33,P0701
+50468.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 14:01:08,P0701
+50473.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:01:13,P0701
+51783.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:23:03,P0701
+52122.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:28:42,P0701
+54559.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 15:09:19,P0701
+54843.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 15:14:03,P0701
+55003.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 15:16:43,P0701
+60065.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 16:41:05,P0701
+61466.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 17:04:26,P0701
+61919.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:11:59,P0701
+62097.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:14:57,P0701
+62098.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:14:58,P0701
+62111.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:15:11,P0701
+62303.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 17:18:23,P0701
+62872.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 17:27:52,P0701
+63184.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:33:04,P0701
+64004.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:46:44,P0701
+65902.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:18:22,P0701
+70565.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:36:05,P0701
+70723.0,설정,com.android.settings,True,USER_INTERACTION,False,2000-01-01 19:38:43,P0701
+75429.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 20:57:09,P0701
+75695.0,설정,com.android.settings,True,USER_INTERACTION,False,2000-01-01 21:01:35,P0701
+76047.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 21:07:27,P0701
+76320.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 21:12:00,P0701
+76719.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 21:18:39,P0701
+79601.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:06:41,P0701
+79603.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:06:43,P0701
+79798.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:09:58,P0701
+80994.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:29:54,P0701
+81301.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:35:01,P0701
+81418.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 22:36:58,P0701
+81425.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:37:05,P0701
+81493.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:38:13,P0701
+81608.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:40:08,P0701
+81624.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 22:40:24,P0701
+81746.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:42:26,P0701
+82011.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:46:51,P0701
+82553.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:55:53,P0701
+84126.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 23:22:06,P0701
+115373.0,메시지,com.samsung.android.messaging,True,USER_INTERACTION,False,2000-01-01 08:02:53,P0701
+118774.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 08:59:34,P0701
+118777.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 08:59:37,P0701
+34046.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 09:27:26,P0703
+35260.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:47:40,P0703
+35261.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 09:47:41,P0703
+35262.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 09:47:42,P0703
+35266.0,T연락처,com.skt.prod.phonebook,False,USER_INTERACTION,False,2000-01-01 09:47:46,P0703
+35633.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:53:53,P0703
+36448.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:07:28,P0703
+37908.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:31:48,P0703
+38660.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:44:20,P0703
+38685.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:44:45,P0703
+38697.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 10:44:57,P0703
+38698.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 10:44:58,P0703
+38703.0,시스템 UI,com.android.systemui,True,USER_INTERACTION,False,2000-01-01 10:45:03,P0703
+38728.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 10:45:28,P0703
+39228.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 10:53:48,P0703
+39249.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:54:09,P0703
+39299.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 10:54:59,P0703
+39312.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 10:55:12,P0703
+39699.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:01:39,P0703
+39809.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:03:29,P0703
+39809.0,Polar Beat,fi.polar.beat,False,USER_INTERACTION,False,2000-01-01 11:03:29,P0703
+39863.0,T전화,com.skt.prod.dialer,True,USER_INTERACTION,True,2000-01-01 11:04:23,P0703
+39864.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:04:24,P0703
+40180.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:09:40,P0703
+40189.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:09:49,P0703
+40198.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:09:58,P0703
+40342.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:12:22,P0703
+40342.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 11:12:22,P0703
+40745.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:19:05,P0703
+40747.0,시스템 UI,com.android.systemui,True,USER_INTERACTION,False,2000-01-01 11:19:07,P0703
+40837.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:20:37,P0703
+41454.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:30:54,P0703
+41656.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:34:16,P0703
+41663.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:34:23,P0703
+41776.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:36:16,P0703
+41941.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:39:01,P0703
+41991.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:39:51,P0703
+42136.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:42:16,P0703
+42163.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:42:43,P0703
+42182.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:43:02,P0703
+42299.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:44:59,P0703
+42340.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:45:40,P0703
+42343.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 11:45:43,P0703
+42351.0,시스템 UI,com.android.systemui,True,USER_INTERACTION,False,2000-01-01 11:45:51,P0703
+42359.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:45:59,P0703
+42565.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:49:25,P0703
+42582.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:49:42,P0703
+42624.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:50:24,P0703
+42679.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:51:19,P0703
+42687.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:51:27,P0703
+42692.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:51:32,P0703
+42744.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 11:52:24,P0703
+42757.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 11:52:37,P0703
+42757.0,Android 시스템,android,True,USER_INTERACTION,False,2000-01-01 11:52:37,P0703
+44819.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 12:26:59,P0703
+44828.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 12:27:08,P0703
+44831.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 12:27:11,P0703
+45206.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 12:33:26,P0703
+46330.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 12:52:10,P0703
+46330.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 12:52:10,P0703
+46330.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 12:52:10,P0703
+46359.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 12:52:39,P0703
+46378.0,카카오뱅크,com.kakaobank.channel,False,USER_INTERACTION,False,2000-01-01 12:52:58,P0703
+46398.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 12:53:18,P0703
+46444.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 12:54:04,P0703
+46498.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 12:54:58,P0703
+46563.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 12:56:03,P0703
+46614.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 12:56:54,P0703
+48125.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 13:22:05,P0703
+48125.0,Polar Beat,fi.polar.beat,False,USER_INTERACTION,False,2000-01-01 13:22:05,P0703
+52251.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 14:30:51,P0703
+52252.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 14:30:52,P0703
+52253.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 14:30:53,P0703
+52908.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 14:41:48,P0703
+53930.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 14:58:50,P0703
+53931.0,지도,com.google.android.apps.maps,True,USER_INTERACTION,True,2000-01-01 14:58:51,P0703
+54244.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:04:04,P0703
+54247.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:04:07,P0703
+54454.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:07:34,P0703
+57019.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:50:19,P0703
+57124.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:52:04,P0703
+57302.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:55:02,P0703
+57317.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 15:55:17,P0703
+57846.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 16:04:06,P0703
+57847.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 16:04:07,P0703
+59407.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 16:30:07,P0703
+60009.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 16:40:09,P0703
+60009.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 16:40:09,P0703
+61042.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 16:57:22,P0703
+61042.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 16:57:22,P0703
+61518.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:05:18,P0703
+63058.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:30:58,P0703
+63066.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:31:06,P0703
+63086.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:31:26,P0703
+63908.0,Facebook,com.facebook.katana,False,USER_INTERACTION,False,2000-01-01 17:45:08,P0703
+63909.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 17:45:09,P0703
+63927.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 17:45:27,P0703
+63928.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 17:45:28,P0703
+63965.0,Polar Beat,fi.polar.beat,False,USER_INTERACTION,False,2000-01-01 17:46:05,P0703
+63966.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:46:06,P0703
+64350.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 17:52:30,P0703
+64351.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 17:52:31,P0703
+64971.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:02:51,P0703
+64971.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:02:51,P0703
+64972.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 18:02:52,P0703
+65119.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:05:19,P0703
+65121.0,Google,com.google.android.googlequicksearchbox,True,USER_INTERACTION,True,2000-01-01 18:05:21,P0703
+65124.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:05:24,P0703
+65202.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:06:42,P0703
+65283.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 18:08:03,P0703
+65283.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:08:03,P0703
+65286.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:08:06,P0703
+65675.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:14:35,P0703
+65675.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:14:35,P0703
+65825.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:17:05,P0703
+65829.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:17:09,P0703
+66019.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:20:19,P0703
+66230.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:23:50,P0703
+66385.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:26:25,P0703
+66508.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:28:28,P0703
+66509.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 18:28:29,P0703
+67284.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 18:41:24,P0703
+68129.0,YouTube,com.google.android.youtube,True,USER_INTERACTION,True,2000-01-01 18:55:29,P0703
+68205.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 18:56:45,P0703
+68208.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 18:56:48,P0703
+69628.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:20:28,P0703
+69628.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:20:28,P0703
+69640.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:20:40,P0703
+69722.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 19:22:02,P0703
+71455.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 19:50:55,P0703
+71502.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:51:42,P0703
+71509.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:51:49,P0703
+71577.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:52:57,P0703
+71586.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:53:06,P0703
+71821.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 19:57:01,P0703
+72004.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 20:00:04,P0703
+72005.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 20:00:05,P0703
+72525.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 20:08:45,P0703
+72525.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 20:08:45,P0703
+73391.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 20:23:11,P0703
+73391.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 20:23:11,P0703
+73410.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 20:23:30,P0703
+73412.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 20:23:32,P0703
+73425.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 20:23:45,P0703
+73426.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 20:23:46,P0703
+73505.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 20:25:05,P0703
+75189.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 20:53:09,P0703
+75190.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 20:53:10,P0703
+75976.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 21:06:16,P0703
+76738.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 21:18:58,P0703
+76758.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 21:19:18,P0703
+77302.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 21:28:22,P0703
+77303.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 21:28:23,P0703
+77308.0,Android 시스템,android,True,USER_INTERACTION,False,2000-01-01 21:28:28,P0703
+82371.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 22:52:51,P0703
+83155.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 23:05:55,P0703
+83160.0,Android 시스템,android,True,USER_INTERACTION,False,2000-01-01 23:06:00,P0703
+83377.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 23:09:37,P0703
+83425.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 23:10:25,P0703
+83428.0,Google,com.google.android.googlequicksearchbox,True,USER_INTERACTION,True,2000-01-01 23:10:28,P0703
+83888.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 23:18:08,P0703
+83889.0,ABC Logger,kaist.iclab.abclogger,False,USER_INTERACTION,False,2000-01-01 23:18:09,P0703
+84382.0,만보기 - 걸음 측정기,pedometer.steptracker.calorieburner.stepcounter,False,USER_INTERACTION,False,2000-01-01 23:26:22,P0703
+84383.0,시스템 UI,com.android.systemui,True,USER_INTERACTION,False,2000-01-01 23:26:23,P0703
+32451.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:00:51,P0704
+32801.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:06:41,P0704
+32981.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:09:41,P0704
+33421.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 09:17:01,P0704
+33451.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:17:31,P0704
+33452.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:17:32,P0704
+33531.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:18:51,P0704
+33531.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 09:18:51,P0704
+33797.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 09:23:17,P0704
+34403.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:33:23,P0704
+35585.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 09:53:05,P0704
+35744.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 09:55:44,P0704
+36031.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 10:00:31,P0704
+37121.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 10:18:41,P0704
+37938.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 10:32:18,P0704
+38129.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 10:35:29,P0704
+38210.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 10:36:50,P0704
+39331.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 10:55:31,P0704
+39606.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 11:00:06,P0704
+41554.0,YouTube,com.google.android.youtube,True,USER_INTERACTION,True,2000-01-01 11:32:34,P0704
+41554.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 11:32:34,P0704
+42557.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 11:49:17,P0704
+45470.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 12:37:50,P0704
+46006.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 12:46:46,P0704
+46006.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 12:46:46,P0704
+47201.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 13:06:41,P0704
+49914.0,시스템 UI,com.android.systemui,True,USER_INTERACTION,False,2000-01-01 13:51:54,P0704
+53905.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 14:58:25,P0704
+55914.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 15:31:54,P0704
+57975.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 16:06:15,P0704
+58826.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 16:20:26,P0704
+58854.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 16:20:54,P0704
+58925.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 16:22:05,P0704
+59727.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 16:35:27,P0704
+59887.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 16:38:07,P0704
+59965.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 16:39:25,P0704
+63659.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 17:40:59,P0704
+63660.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 17:41:00,P0704
+64584.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 17:56:24,P0704
+65664.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 18:14:24,P0704
+66080.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 18:21:20,P0704
+66282.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 18:24:42,P0704
+67451.0,Dropsync,com.ttxapps.dropsync,False,USER_INTERACTION,False,2000-01-01 18:44:11,P0704
+67940.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 18:52:20,P0704
+68453.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 19:00:53,P0704
+68495.0,전화,com.samsung.android.incallui,True,USER_INTERACTION,False,2000-01-01 19:01:35,P0704
+68811.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:06:51,P0704
+68875.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:07:55,P0704
+69161.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:12:41,P0704
+69694.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:21:34,P0704
+69695.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:21:35,P0704
+69794.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:23:14,P0704
+69794.0,콴다 선생님,com.mathpresso.qandateacher,False,USER_INTERACTION,False,2000-01-01 19:23:14,P0704
+69913.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:25:13,P0704
+69914.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:25:14,P0704
+69996.0,카카오톡,com.kakao.talk,False,USER_INTERACTION,False,2000-01-01 19:26:36,P0704
+70009.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:26:49,P0704
+70031.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:27:11,P0704
+70339.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:32:19,P0704
+70894.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 19:41:34,P0704
+71012.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:43:32,P0704
+71330.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:48:50,P0704
+71657.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 19:54:17,P0704
+73298.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 20:21:38,P0704
+77783.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 21:36:23,P0704
+78937.0,Paco,com.pacoapp.paco,False,USER_INTERACTION,False,2000-01-01 21:55:37,P0704
+79386.0,안드로이드 시스템,android,True,USER_INTERACTION,False,2000-01-01 22:03:06,P0704

@@ -1,0 +1,85 @@
+No,Year,Term,Department,Course Code,Course No,Section,Course Title,Lecture,Lab,Credit,AU,Repeat a Course
+1,2013,Spring,Department of Humanities & Social Sciences,10.090,HSS090,24,Happy College Life,1,0,0.0,1,N
+2,2013,Spring,Department of Humanities & Social Sciences,10.106,HSS020,R,English Communication,1,2,1.0,0,N
+3,2013,Spring,Department of Humanities & Social Sciences,10.174,HSS062,R,Humanity/Leadership III,1,0,0.0,1,N
+4,2013,Spring,Physics,20.141,PH141,C,General Physics I,3,1,3.0,0,N
+5,2013,Spring,Physics,20.151,PH151,K,General Physics Lab. I,0,3,1.0,0,N
+6,2013,Spring,Biological Sciences,21.120,BS120,B,General Biology,3,0,3.0,0,N
+7,2013,Spring,Chemistry,23.101,CH101,B,General Chemistry I,3,0,3.0,0,N
+8,2013,Spring,Chemistry,23.102,CH102,V,General Chemistry Experiment I,0,3,1.0,0,N
+9,2013,Spring,Department of Mathematical Sciences,25.101,MAS101,A,Calculus 1,3,1,3.0,0,N
+10,2013,Fall,Department of Humanities & Social Sciences,10.091,HSS091,24,Exciting College Life,1,0,0.0,1,N
+11,2013,Fall,Freshman Design,14.200,ED200, , Light Color and Life,3,0,3.0,0,N
+12,2013,Fall,Physics,20.142,PH142,B,General Physics II,3,1,3.0,0,N
+13,2013,Fall,Department of Mathematical Sciences,25.102,MAS102,D,Calculus II,3,1,3.0,0,N
+14,2013,Fall,Department of Mathematical Sciences,25.109,MAS109,A,Introduction to Linear Algebra,3,1,3.0,0,N
+15,2013,Fall,Industrial Design,32.202,ID202,B,Idea & Expression,3,1,3.0,0,N
+16,2013,Fall,Department of Computer Science,36.101,CS101,A,Introduction to Programming,2,3,3.0,0,N
+17,2014,Spring,Industrial Design,32.211,ID211,A,Two-Dimensional Design,3,1,3.0,0,N
+18,2014,Spring,Industrial Design,32.212,ID212,A,Three-Dimensional Design,3,1,3.0,0,N
+19,2014,Spring,Industrial Design,32.215,ID215, ,Introduction to Industrial Design,3,0,3.0,0,N
+20,2014,Spring,Industrial Design,32.217,ID217, ,Presentation Technique,3,1,3.0,0,N
+21,2014,Fall,Department of Humanities & Social Sciences,10.134,HSS107, ,Introduction to Philosophy,3,0,3.0,0,N
+22,2014,Fall,Department of Humanities & Social Sciences,10.172,HSS060,D,Humanity/Leadership I<7H Leadership>,1,0,0.0,1,N
+23,2014,Fall,Industrial Design,32.213,ID213,A,Product Design Fundamentals,3,1,3.0,0,N
+24,2014,Fall,Industrial Design,32.214,ID214,A,Digital Design Graphics,3,1,3.0,0,N
+25,2014,Fall,Industrial Design,32.216,ID216, ,Product Design Engineering,3,0,3.0,0,N
+26,2014,Fall,Industrial Design,32.410,ID410, ,Special Topics in Design,1,0,1.0,0,N
+27,2016,Spring,School of Humanities & Social Sciences,10.182,HSS042,A,Tennis,2,0,0.0,2,N
+28,2016,Spring,School of Humanities & Social Sciences,10.222,HSS266, ,Rereading Korean Novels,3,0,3.0,0,N
+29,2016,Spring,School of Humanities & Social Sciences,13.275,HSS275, ,Arts of Asia,3,0,3.0,0,N
+30,2016,Spring,Industrial Design,32.219,ID219,B,Computer-Aided Design,3,1,3.0,0,N
+31,2016,Spring,Industrial Design,32.301,ID301,A,Product Design Factors,3,1,3.0,0,N
+32,2016,Spring,Industrial Design,32.302,ID302, ,Space Design,3,1,3.0,0,N
+33,2016,Spring,Industrial Design,32.307,ID307, ,Interface Design,3,1,3.0,0,N
+34,2016,Summer,Industrial Design,32.495,ID495,AI,Individual Study,0,6,1.0,0,N
+35,2016,Fall,School of Humanities & Social Sciences,10.143,HSS148, ,Introduction to Sociology,3,0,3.0,0,N
+36,2016,Fall,School of Humanities & Social Sciences,10.221,HSS265, ,Rereading Korean Poetry,3,0,3.0,0,N
+37,2016,Fall,Industrial Design,32.304,ID304,B,Product Design Program,3,1,3.0,0,N
+38,2016,Fall,Industrial Design,32.430,ID430,A,Moving Image Design,3,1,3.0,0,N
+39,2016,Fall,Industrial Design,32.430,ID430,B,Software prototyping,3,1,3.0,0,N
+40,2016,Fall,Industrial Design,32.496,ID496, ,Seminar,1,0,1.0,0,N
+41,2016,Winter,School of Humanities & Social Sciences,13.008,HSS008,A,Fundamentals of Writing,1,0,1.0,0,N
+42,2017,Spring,School of Humanities & Social Sciences,10.051,HSS051,A,Fitness Promotion,2,0,0.0,2,Z
+43,2017,Spring,School of Humanities & Social Sciences,10.276,HSS004, ,Creative Writing,3,0,3.0,0,N
+44,2017,Spring,School of Humanities & Social Sciences,10.320,HSS320, ,History of Architecture,3,0,3.0,0,N
+45,2017,Spring,School of Humanities & Social Sciences,10.321,HSS362,B,20th Century Western Music,3,0,3.0,0,N
+46,2017,Spring,Industrial Design,32.403,ID403, ,System Design,3,1,3.0,0,N
+47,2017,Spring,Industrial Design,32.409,ID409, ,Graduation Design Studio I,3,0,3.0,0,Z
+48,2017,Spring,Industrial Design,32.430,ID430,A,Portfolio & Exhibition Design,3,1,3.0,0,N
+49,2017,Spring,Industrial Design,32.495,ID495,AJ,Individual Study,0,6,1.0,0,N
+50,2020,Spring,School of Humanities & Social Sciences,10.009,HSS011,D,Intermediate English Reading & Writing,3,0,2.0,0,N
+51,2020,Spring,School of Humanities & Social Sciences,10.051,HSS051,G,Fitness Promotion,2,0,0.0,2,N
+52,2020,Spring,School of Humanities & Social Sciences,10.221,HSS265, ,Rereading Korean Poetry,3,0,3.0,0,Y
+53,2020,Spring,School of Humanities & Social Sciences,10.225,HSS270, ,British and American Poetry,3,0,3.0,0,N
+54,2020,Spring,School of Humanities & Social Sciences,10.233,HSS124, ,History of Asian culture,3,0,3.0,0,N
+55,2020,Spring,School of Humanities & Social Sciences,13.340,HSS340, ,Understanding Korean Politics,3,0,3.0,0,N
+56,2020,Spring,Department of Mathematical Sciences,25.101,MAS101,A,Calculus 1,3,1,3.0,0,Y
+57,2020,Spring,Department of Mathematical Sciences,25.109,MAS109,B,Introduction to Linear Algebra,3,1,3.0,0,Y
+58,2020,Spring,Industrial Design,32.409,ID409, ,Graduation Design Studio I,3,0,3.0,0,N
+59,2020,Summer,School of Humanities & Social Sciences,10.115,HSS115, ,Rediscovering Modern Korea,3,0,3.0,0,N
+60,2020,Summer,Industrial Design,32.495,ID495,AK,Individual Study,0,6,1.0,0,N
+61,2020,Fall,School of Humanities & Social Sciences,10.050,HSS050,C,Dance Sport,2,0,0.0,2,N
+62,2020,Fall,School of Humanities & Social Sciences,10.051,HSS051,A,Fitness Promotion,2,0,0.0,2,Y
+63,2020,Fall,School of Humanities & Social Sciences,13.317,HSS317,B,Reading Novels from the Perspective of Humanities,3,0,3.0,0,N
+64,2020,Fall,Industrial Design,32.402,ID402, ,Design Entrepreneurship,3,0,3.0,0,N
+65,2020,Fall,Industrial Design,32.414,ID414, ,Graduation Design Studio II,3,0,3.0,0,N
+66,2020,Fall,Industrial Design,32.490,ID490,AK,Undergraduate Thesis Project,0,6,3.0,0,N
+67,2020,Fall,Department of Mechanical Engineering,B7.106,ME106, ,Human and Machine,3,0,3.0,0,N
+68,2021,Spring,Undergraduate Research Participation,08.495,URP495,AX,Undergraduate Research Participation(A),0,6,3.0,0,N
+69,2021,Spring,School of Humanities & Social Sciences,10.179,HSS070, ,Ethics and Safety II,1,0,0.0,1,N
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
