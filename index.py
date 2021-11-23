@@ -311,6 +311,50 @@ app.layout = html.Div([
     dash.dependencies.Output('pie-plot', 'figure'),
     [dash.dependencies.Input("checklist-G", "value")])
 def update_pie(value):
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     df = px.data.tips()
     fig = px.pie(df, values='tip', names='day')
     fig.update_layout(
