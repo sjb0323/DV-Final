@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
+from dash.exceptions import PreventUpdate
 import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 import time
+import numpy as np
 from numpy import NaN
 import pandas as pd
 import datetime as dt 
@@ -16,20 +18,19 @@ server = Flask(__name__)
 stylesheets = [dbc.themes.FLATLY, dbc.icons.BOOTSTRAP,"/static/style.css"]
 app = dash.Dash(__name__, server=server, external_stylesheets = stylesheets)
 
-applist = ["KaKaotalk", "Facebook", "Instagram", "NAVER", "Chrome", "Youtube", "Messenger"] 
-AppColorDict = {"KaKaotalk" : "yellow", "Facebook" : "Blue", "Instagram" : "Pink", "NAVER" : "green", "Chrome" : "white", "Youtube" : "red", "Messenger" : "black"}
+AppColorDict = {"KaKaotalk" : ["yellow","black"], "Facebook" : ["Blue","white"], "Instagram" : ["Pink","black"], "NAVER" : ["green","white"], "Chrome" : ["gray","black"], "Youtube" : ["red","white"], "Messenger" : ["black","white"]}
 
 daterange = pd.date_range(start=dt.datetime(2000, 1, 1)+ dt.timedelta(hours=9),end=dt.datetime(2000, 1, 2)+ dt.timedelta(hours=9),freq='S')
 
 abcde=1
-selectedApp = []
+selectedApp = list(AppColorDict.keys())
 k = []
 
 
 def make_button(value):
     t = html.Div(children = [
                 dbc.Button([
-                    value, html.I(className="bi bi-x-octagon m-2")], value = value, n_clicks = 0, style = { "color" : "white", "background": AppColorDict.get(value, "white"), "margin": "5px"}
+                    value, html.I(className="bi bi-x-octagon m-2")], value = value, n_clicks = 0, style = { "font-size":"0.5em","color" : AppColorDict.get(value, "white")[1], "background": AppColorDict.get(value, "white")[0], "margin": "5px"}
                     )], id = "{}closebutton".format(value), style= {"display" : "none"})
     return t
 
@@ -48,8 +49,20 @@ def unixToDatetime(unix):
 
 
 # Read The Data
-df = pd.read_csv('data/concat.csv')
+
 userInfo_df = pd.read_csv('data/user_info.csv')
+final_df = pd.read_csv('data/Final Data.csv')
+
+global interaction_df
+interaction_df = final_df.loc[final_df['is_interaction']==True]
+interaction_df['time_id'] = pd.to_datetime(interaction_df.time_id)
+interaction_df['second'] = interaction_df.time_id.values.astype(np.int64)/1000000000%86400
+interaction_df['pid'] = interaction_df['pid'].map(lambda x: x.lstrip('P'))
+interaction_df['pid']=pd.to_numeric(interaction_df['pid'].str[1:])
+
+final_df['time_id'] = pd.to_datetime(final_df.time_id)
+final_df['second'] = final_df.time_id.values.astype(np.int64)/1000000000%86400
+
 
 #적용할 애들
 applyUserInfo = userInfo_df
@@ -119,39 +132,48 @@ app.layout = html.Div([
                                 }
                             ),
                             html.Label('Selected time range : 00:00:00 ~ 23:59:59', id='time-range-label'),
+                            html.Br(),
+                            html.Hr(),
+                            html.Br(),
+                            html.H5('Overall Application Uses'),
                             dcc.Graph(id='main-graph')
                             ]),
                         width = 12, style = {"background":"white"}
                         )
                     ),
-                    dbc.Row(dbc.Col(html.Div(["chart2",
-                    dcc.Graph(id='second-graph')]),width = 12, style = {"background":"pink"})),
+                    dbc.Row(dbc.Col(html.Div([
+                    html.Br(),
+                    html.Br(),
+                    html.H5('Stacked Application Uses'),
+                    dcc.Graph(id='second-graph')]),width = 12, style = {"background":"white"})),
                 ], width = 9),
 
                 dbc.Col([
-                    html.H1("Options"),
+                    html.H3("Options"),
                     
                     #Search
-                    html.H3("Selected Apps"),
+                    html.H5("Selected Apps"),
                     html.Div([
                         html.Div([
                             dcc.Dropdown(
                                 options=[
-                                    {'label': i, 'value': i} for i in applist
+                                    {'label': i, 'value': i} for i in AppColorDict.keys()
                                 ],
                                 id = 'searchinput',
+                                value = list(AppColorDict.keys()),
                                 placeholder = 'Select Apps...',
                                 clearable = False,
                                 multi = True
                             ),
-                            html.Div(id='searchoutput', children = k)
+                            html.Div(id='searchoutput', children = k, style={"height" : "200px"})
                         ])
-                    ]),                  
-                      
-                    html.H5("Selected User Traits"),
-                    html.Div([
+                    ]),
+                    html.Hr(),                  
+                    html.Div([  
+                        html.H5("Selected User Traits"),                    
                         dbc.Button("Select All", id='select-all', n_clicks=0),
                     ]),
+                    html.Br(),
                     html.H5("Gender"),
                     html.Div([
                         dbc.Checklist(
@@ -260,10 +282,14 @@ app.layout = html.Div([
                 )
             ], className ="g-2"),
 
+            html.Br(),
+            html.Hr(),
+            html.Br(),
             dbc.Row([
                 dbc.Col(html.Div(["",
                 #Pie Chart
                     html.H5("Used App Time Proportion"),
+                    html.P(["Proportion of app uses in the selected time interval"]),
                     html.Div(
                     [
                         dcc.Graph(
@@ -275,8 +301,8 @@ app.layout = html.Div([
                 dbc.Col(html.Div([
                 #Interaction Mark
                     html.H5("Interaction Marsk in Apps by Time"),
-                    html.P(["Each marks are results of user's with package, such as response to notification"]),
-                    html.P("Please hover over the mark to check User ID and App Name"),
+                    html.P(["Marks are trace of user's interaction with package, such as response to notification"]),
+                    html.P("Hover over the mark to check User ID and App Name"),
                     dcc.Graph(
                         id="interaction-mark",
                         hoverData={'points': [{'hovertext': 'P0701'}]}
@@ -306,14 +332,149 @@ app.layout = html.Div([
         ], style={'max-width' : '1400px', 'display' : 'flex', 'flex-direction' : 'column', 'align-self' : 'center'})
     ], style={'width' : 'device-width', 'display' : 'flex', 'flex-direction' : 'column', 'align-item' : 'center'}),
 ])
+@app.callback(
+    dash.dependencies.Output('main-graph', 'figure'),[dash.dependencies.Input("searchinput", "value"), dash.dependencies.Input("apply_button", "n_clicks"),dash.dependencies.Input("time_slider", "value")]
+)
+def update_main(value, n_clicks, slider_range):
+    df_data = final_df.copy()
+    low, high = slider_range
+    low=low%86400
+    high=(high-1)%86400
+
+    if('KaKaotalk' in value):
+        value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+
+    df_data = df_data.loc[df_data['appName'].isin(value)]
+
+    mask = (df_data['second'] > low) & (df_data['second'] < high)
+    df_data=df_data[mask]
+
+
+    df_data = df_data[df_data['is_interaction'] == False]
+    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
+    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+
+    df_data.sort_values('time_id', inplace=True)
+    df_data['appName'].unique()
+    df_grouped = df_data.groupby(['appName', 'time_id']).count()
+    df_grouped.reset_index(inplace=True)
+
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid'],
+                        mode='lines',
+                        name='Chrome'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'],
+                        mode='lines',
+                        name='YouTube'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid'],
+                        mode='lines',
+                        name='KaKaoTalk'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid'],
+                        mode='lines',
+                        name='Facebook'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid'],
+                        mode='lines',
+                        name='Instagram'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid'],
+                        mode='lines',
+                        name='Messenger'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'],
+                        mode='lines',
+                        name='NAVER'))
+    fig.update_layout(
+        yaxis_title="Number of Users",
+        margin=dict(b=20, l=20, r=160, t=20),
+        height = 385
+    )
+
+    return fig
+
+@app.callback(
+    dash.dependencies.Output('second-graph', 'figure'),[dash.dependencies.Input("searchinput", "value"),dash.dependencies.Input("apply_button", "n_clicks"), dash.dependencies.Input("time_slider", "value")]
+)
+def update_second(value, n_clicks, slider_range):
+    df_data = final_df.copy()
+    low, high = slider_range
+    low=low%86400
+    high=(high-1)%86400
+
+
+    if('KaKaotalk' in value):
+        value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+        
+    mask = (df_data['second'] > low) & (df_data['second'] < high)
+    df_data=df_data[mask]
+
+
+    df_data = df_data.loc[df_data['appName'].isin(value)]
+    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
+    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+
+    df_data.sort_values('time_id', inplace=True)
+    df_data['appName'].unique()
+    df_grouped = df_data.groupby(['appName', 'time_id']).count()
+    df_grouped.reset_index(inplace=True)
+
+
+    fig = go.Figure(data=[
+        go.Bar(name='Chrome', x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid']),
+        go.Bar(name='YouTube', x=df_grouped[df_grouped['appName'] == 'YouTube']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid']),
+        go.Bar(name='KakaoTalk', x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid']),
+        go.Bar(name='Facebook', x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid']),
+        go.Bar(name='Instagram', x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid']),
+        go.Bar(name='Messenger', x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid']),
+        go.Bar(name='NAVER', x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'])            
+    ])
+
+    fig.update_layout(barmode='stack')
+    fig.update_layout(
+        yaxis_title="Cumulative Number of Users",
+        margin=dict(b=20, l=20, r=160, t=20),
+        height = 385
+    )
+    return fig
 
 @app.callback(
     dash.dependencies.Output('pie-plot', 'figure'),
-    [dash.dependencies.Input("checklist-G", "value")])
-def update_pie(value):
+    [dash.dependencies.Input("searchinput", "value") ,dash.dependencies.Input("time_slider", "value")])
+def update_pie(value,slider_range):
+    df_data = final_df.copy()
+    low, high = slider_range
+    low=low%86400
+    high=(high-1)%86400
+
+    if('KaKaotalk' in value):
+        value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+
+    df_data = df_data.loc[df_data['appName'].isin(value)]
+
+    mask = (df_data['second'] > low) & (df_data['second'] < high)
+    df_data=df_data[mask]
+
+
+    df_data = df_data[df_data['is_interaction'] == False]
+    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
+    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+
+    df_data.sort_values('time_id', inplace=True)
+    df_data['appName'].unique()
+    df_grouped = df_data.groupby(['appName']).count()
+    df_grouped.reset_index(inplace=True)
+
+    print(df_grouped)
+    
     df = px.data.tips()
-    fig = px.pie(df, values='tip', names='day')
+    fig = px.pie(df_grouped, values='pid', names='appName')
+    fig.update_traces(textposition='outside', textinfo='percent+label')
     fig.update_layout(
+        showlegend = False,
         margin=dict(b=0, l=0, r=0, t=80)
     )        
     return fig
@@ -321,12 +482,15 @@ def update_pie(value):
 # Update polar chart based on User ID
 @app.callback(
     dash.dependencies.Output('polar-plot', 'figure'),
-    [dash.dependencies.Input('interaction-mark', 'hoverData')])
-def update_user_Id(hoverData):
+    [dash.dependencies.Input('interaction-mark', 'hoverData'),
+     dash.dependencies.Input('user-id-label', 'value')])
+def update_user_Id(hoverData,value):
     global recent_trait
-    
+    a=value
+    userId=0
     userId=hoverData['points'][0]['hovertext']
-    userNumb=int(userId[1:])
+    print(userId)
+    userNumb=int(userId)
 
     polar_df=pd.DataFrame()
 
@@ -334,11 +498,13 @@ def update_user_Id(hoverData):
 
     data_df=userInfo_df.loc[userInfo_df['UID']==userNumb]
     data=[]
+    
+    print("!!!!!!!!!!!")
 
     for i in range(0,8,1):
         data.append(data_df.iloc[0][i])
-
     polar_df['Score']=data[1:6]
+    
     recent_trait=data
 
     polar_df['Detail'] = ['openness', 'conscientiousness', 'neuroticism', 'extraversion',' agreeableness']
@@ -393,28 +559,46 @@ def _update_time_range_label(year_range):
 #Interaction mark
 @app.callback(
     dash.dependencies.Output("interaction-mark", "figure"), 
-    [dash.dependencies.Input("time_slider", "value")])
-def update_chart(slider_range):
+    [dash.dependencies.Input("searchinput", "value"),dash.dependencies.Input("time_slider", "value")])
+def update_chart(value,slider_range):
+    global interaction_df
     low, high = slider_range
     low=low%86400
     high=(high-1)%86400
-    mask = (df['timestamp'] > low) & (df['timestamp'] < high)
-    scatter_df=df[mask]
+    
+    df=interaction_df
+    applyUserInfo['UID'].astype(str)
+    filtered= pd.DataFrame()
+   
+    filtered= df = df.loc[df["pid"].isin(applyUserInfo['UID'].unique())]
+    
+    if('KaKaotalk' in value):
+            value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+
+    filtered = filtered.loc[filtered['appName'].isin(value)]
+    
+    print(2)
+    print(filtered)
+    print(2)
+    mask = (filtered['second'] > low) & (filtered['second'] < high)
+    scatter_df=filtered[mask]
+    print(scatter_df)
 
     layout = Layout(plot_bgcolor='rgba(0,0,0,0)')
 
     fig = go.Figure(layout = layout)
-    unique_y=scatter_df['name'].unique()
     
     scatter_copy=pd.DataFrame()
-    scatter_copy['Time']=scatter_df['convertTime']
-    scatter_copy['App Name']=scatter_df['name']
+    scatter_copy['Time']=scatter_df['time_id']
+    scatter_copy['App Name']=scatter_df['appName']
 
     fig=px.scatter(
         scatter_copy,
         x=scatter_copy['Time'],          
         y=scatter_copy['App Name'],
-        hover_name=scatter_df.ID,
+        hover_name=scatter_df.pid,
         hover_data={
             'Time' : '|%H:%M',
             'App Name' : True
@@ -425,7 +609,7 @@ def update_chart(slider_range):
             size = 7, 
             color = 'black', 
             symbol='line-ns',
-            opacity = 0.2,
+            opacity = 0.1,
             line = dict(
                 color='red',
                 width=2
