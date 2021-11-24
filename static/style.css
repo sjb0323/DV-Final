@@ -1,0 +1,11 @@
+.Select-value{
+    display:none;
+}
+
+.Select--multi .Select-value{
+    display:none;
+}
+
+.Select--multi>.Select-control .Select-value{
+    display:none;
+}
