@@ -11,6 +11,7 @@ import pandas as pd
 import datetime as dt 
 import plotly.express as px
 import plotly.graph_objs as go
+import json
 from plotly.graph_objects import Layout
 
 server = Flask(__name__)
@@ -35,7 +36,6 @@ def make_button(value):
 
 for a in AppColorDict.keys():
     k.append(make_button(a))
-
 
 # Time Convert Function
 def unixTimeMillis(dt):
@@ -88,6 +88,27 @@ app.layout = html.Div([
                     html.H3("Dashboard", className = "m-2"), style = {"color":"white"}
                 ), className="navbar navbar-expand-lg navbar-dark bg-primary"
             ),
+            dbc.Row(dbc.Col(html.Div(["chart2",
+            dcc.Graph(id='second-graph')]),width = 12, style = {"background":"pink"})),
+        ], width = 9),
+
+        dbc.Col([
+            html.H1("Options"),
+            html.H3("Selected Apps"),
+            html.Div([
+                html.Div([
+                    dcc.Dropdown(
+                        options=[
+                            {'label': i, 'value': i} for i in applist
+                        ],
+                        id = 'searchinput',
+                        placeholder = 'Select Apps...',
+                        clearable = False,
+                        multi = True
+                    ),
+                    html.Div(id='searchoutput', children = k)
+                ])
+            ]),
 
             #Time Range
             dbc.Row([
@@ -306,6 +327,126 @@ app.layout = html.Div([
         ], style={'max-width' : '1400px', 'display' : 'flex', 'flex-direction' : 'column', 'align-self' : 'center'})
     ], style={'width' : 'device-width', 'display' : 'flex', 'flex-direction' : 'column', 'align-item' : 'center'}),
 ])
+
+
+# @app.callback(dash.Output('facebookclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('facebookclosebutton','n_clicks')])
+# def destroy_searchoutput1(value, n_clicks):
+#     global k
+#     changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    
+#     print(value)
+#     if 'facebookclosebutton' in changed_id:
+#         return {"display" : "none"}
+#     if "facebook" in value:
+#         return {"display" : "inline-block"}
+#     return {"display" : "none"}
+
+
+applist = ["KaKaotalk", "Facebook", "Instagram", "NAVER", "Chrome", "Youtube", "Messenger"] 
+
+@app.callback(dash.Output('KaKaotalkclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('KaKaotalkclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'KaKaotalkclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'KaKaotalk' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+@app.callback(dash.Output('Facebookclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('Facebookclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'Facebookclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'Facebook' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+@app.callback(dash.Output('Instagramclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('Instagramclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'Instagramclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'Instagram' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+@app.callback(dash.Output('NAVERclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('NAVERclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'NAVERclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'NAVER' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+@app.callback(dash.Output('Chromeclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('Chromeclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'Chromeclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'Chrome' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+@app.callback(dash.Output('Youtubeclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('Youtubeclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'Youtubeclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'Youtube' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+@app.callback(dash.Output('Messengerclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('Messengerclosebutton','n_clicks')])
+def destroy_searchoutput2(value, n_clicks):
+    global selectedApp
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if 'Messengerclosebutton' in changed_id:
+        return {"display" : "none"}
+    if 'Messenger' in value:
+        selectedApp = value
+        return {"display" : "inline-block"}
+    return {"display" : "none"}
+
+
+
+@app.callback(dash.Output('searchinput','value'), [dash.Input('KaKaotalkclosebutton','n_clicks'), dash.Input('Facebookclosebutton','n_clicks'), dash.Input('Instagramclosebutton','n_clicks'), dash.Input('NAVERclosebutton','n_clicks'), dash.Input('Chromeclosebutton','n_clicks'), dash.Input('Youtubeclosebutton','n_clicks'), dash.Input('Messengerclosebutton','n_clicks')])
+def destroy_searchoutput2(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5, n_clicks6, n_clicks7):
+    changed_id = [p for p in dash.callback_context.triggered[0]['prop_id'].split(".")]
+    if n_clicks1 == 0 and n_clicks2 == 0 and n_clicks3 == 0 and n_clicks4 == 0 and n_clicks5 == 0 and n_clicks6 == 0 and n_clicks7 == 0:
+        raise PreventUpdate
+    if 'KaKaotalkclosebutton' in changed_id:
+        selectedApp.remove("KaKaotalk")
+    elif 'Facebookclosebutton' in changed_id:
+        selectedApp.remove("Facebook")
+    elif 'Instagramclosebutton' in changed_id:
+        selectedApp.remove("Instagram")
+    elif 'NAVERclosebutton' in changed_id:
+        selectedApp.remove("NAVER")
+    elif 'Chromeclosebutton' in changed_id:
+        selectedApp.remove("Chrome")
+    elif 'Youtubeclosebutton' in changed_id:
+        selectedApp.remove("Youtube")
+    elif 'Messengerclosebutton' in changed_id:
+        selectedApp.remove("Messenger")
+    return selectedApp
+
+# @app.callback(dash.dependencies.Output("output", "children"), [dash.dependencies.Input("radios", "value")])
+# def display_value(value):
+#     return f"Selected value: {value}"
 
 @app.callback(
     dash.dependencies.Output('pie-plot', 'figure'),
