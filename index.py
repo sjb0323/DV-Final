@@ -21,6 +21,7 @@ AppColorDict = {"KaKaotalk" : "yellow", "Facebook" : "Blue", "Instagram" : "Pink
 
 daterange = pd.date_range(start=dt.datetime(2000, 1, 1)+ dt.timedelta(hours=9),end=dt.datetime(2000, 1, 2)+ dt.timedelta(hours=9),freq='S')
 
+abcde=1
 selectedApp = []
 k = []
 
