@@ -17,19 +17,18 @@ server = Flask(__name__)
 stylesheets = [dbc.themes.FLATLY, dbc.icons.BOOTSTRAP,"/static/style.css"]
 app = dash.Dash(__name__, server=server, external_stylesheets = stylesheets)
 
-applist = ["KaKaotalk", "Facebook", "Instagram", "NAVER", "Chrome", "Youtube", "Messenger"] 
-AppColorDict = {"KaKaotalk" : "yellow", "Facebook" : "Blue", "Instagram" : "Pink", "NAVER" : "green", "Chrome" : "white", "Youtube" : "red", "Messenger" : "black"}
+AppColorDict = {"KaKaotalk" : ["yellow","black"], "Facebook" : ["Blue","white"], "Instagram" : ["Pink","black"], "NAVER" : ["green","white"], "Chrome" : ["gray","black"], "Youtube" : ["red","white"], "Messenger" : ["black","white"]}
 
 daterange = pd.date_range(start=dt.datetime(2000, 1, 1)+ dt.timedelta(hours=9),end=dt.datetime(2000, 1, 2)+ dt.timedelta(hours=9),freq='S')
 
-selectedApp = []
+selectedApp = list(AppColorDict.keys())
 k = []
 
 
 def make_button(value):
     t = html.Div(children = [
                 dbc.Button([
-                    value, html.I(className="bi bi-x-octagon m-2")], value = value, n_clicks = 0, style = { "color" : "white", "background": AppColorDict.get(value, "white"), "margin": "5px"}
+                    value, html.I(className="bi bi-x-octagon m-2")], value = value, n_clicks = 0, style = { "font-size":"0.5em","color" : AppColorDict.get(value, "white")[1], "background": AppColorDict.get(value, "white")[0], "margin": "5px"}
                     )], id = "{}closebutton".format(value), style= {"display" : "none"})
     return t
 
@@ -50,6 +49,9 @@ def unixToDatetime(unix):
 # Read The Data
 df = pd.read_csv('data/concat.csv')
 userInfo_df = pd.read_csv('data/user_info.csv')
+
+final_df = pd.read_csv('data/fifinal.csv')
+
 
 #적용할 애들
 applyUserInfo = userInfo_df
@@ -78,6 +80,13 @@ n_dict = { 'Low' : True , 'Mid' : True, 'High' : True}
 e_dict = { 'Low' : True , 'Mid' : True, 'High' : True}
 a_dict = { 'Low' : True , 'Mid' : True, 'High' : True}
 g_dict = { 'Male' : True , 'Female' : True}
+
+
+
+
+
+
+
 
 
 app.layout = html.Div([ 
@@ -124,8 +133,8 @@ app.layout = html.Div([
                         width = 12, style = {"background":"white"}
                         )
                     ),
-                    dbc.Row(dbc.Col(html.Div(["chart2",
-                    dcc.Graph(id='second-graph')]),width = 12, style = {"background":"pink"})),
+                    dbc.Row(dbc.Col(html.Div([
+                    dcc.Graph(id='second-graph')]),width = 12, style = {"background":"white"})),
                 ], width = 9),
 
                 dbc.Col([
@@ -137,8 +146,9 @@ app.layout = html.Div([
                         html.Div([
                             dcc.Dropdown(
                                 options=[
-                                    {'label': i, 'value': i} for i in applist
+                                    {'label': i, 'value': i} for i in AppColorDict.keys()
                                 ],
+                                value = list(AppColorDict.keys()),
                                 id = 'searchinput',
                                 placeholder = 'Select Apps...',
                                 clearable = False,
@@ -316,6 +326,89 @@ def update_pie(value):
     fig.update_layout(
         margin=dict(b=0, l=0, r=0, t=80)
     )        
+    return fig
+
+@app.callback(
+    dash.dependencies.Output('main-graph', 'figure'),[dash.dependencies.Input("searchinput", "value"), dash.dependencies.Input("apply_button", "n_clicks")]
+)
+def update_main(value, n_clicks):
+    df_data = final_df.copy()
+    
+    if('KaKaotalk' in value):
+        value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+    
+    df_data = df_data.loc[df_data['appName'].isin(value)]
+        
+    df_data = df_data[df_data['is_interaction'] == False]
+    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
+    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+    
+    df_data.sort_values('time_id', inplace=True)
+    df_data['appName'].unique()
+    df_grouped = df_data.groupby(['appName', 'time_id']).count()
+    df_grouped.reset_index(inplace=True)
+    
+    
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid'],
+                        mode='lines+markers',
+                        name='Chrome'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'],
+                        mode='lines+markers',
+                        name='YouTube'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid'],
+                        mode='lines+markers',
+                        name='KaKaoTalk'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid'],
+                        mode='lines+markers',
+                        name='Facebook'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid'],
+                        mode='lines+markers',
+                        name='Instagram'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid'],
+                        mode='lines+markers',
+                        name='Messenger'))
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'],
+                        mode='lines+markers',
+                        name='NAVER'))
+
+    
+    return fig
+
+@app.callback(
+    dash.dependencies.Output('second-graph', 'figure'),[dash.dependencies.Input("searchinput", "value"),dash.dependencies.Input("apply_button", "n_clicks")]
+)
+def update_second(value, n_clicks):
+    df_data = final_df.copy()
+    
+    if('KaKaotalk' in value):
+        value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+    
+    df_data = df_data.loc[df_data['appName'].isin(value)]
+    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
+    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+    
+    df_data.sort_values('time_id', inplace=True)
+    df_data['appName'].unique()
+    df_grouped = df_data.groupby(['appName', 'time_id']).count()
+    df_grouped.reset_index(inplace=True)
+    
+
+    fig = go.Figure(data=[
+        go.Bar(name='Chrome', x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid']),
+        go.Bar(name='YouTube', x=df_grouped[df_grouped['appName'] == 'YouTube']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid']),
+        go.Bar(name='KakaoTalk', x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid']),
+        go.Bar(name='Facebook', x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid']),
+        go.Bar(name='Instagram', x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid']),
+        go.Bar(name='Messenger', x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid']),
+        go.Bar(name='NAVER', x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'])            
+    ])
+
+    fig.update_layout(barmode='stack')
     return fig
 
 # Update polar chart based on User ID
@@ -827,6 +920,8 @@ def destroy_searchoutput2(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5,
         selectedApp.remove("Youtube")
     elif 'Messengerclosebutton' in changed_id:
         selectedApp.remove("Messenger")
+        
+    print(selectedApp)
     return selectedApp
 
 
