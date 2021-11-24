@@ -478,7 +478,7 @@ def update_pie(value,slider_range):
         margin=dict(b=0, l=0, r=0, t=80)
     )        
     return fig
-
+b=1
 # Update polar chart based on User ID
 @app.callback(
     dash.dependencies.Output('polar-plot', 'figure'),
