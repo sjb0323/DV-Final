@@ -342,7 +342,6 @@ app.layout = html.Div([
 #     return {"display" : "none"}
 
 
-applist = ["KaKaotalk", "Facebook", "Instagram", "NAVER", "Chrome", "Youtube", "Messenger"] 
 
 @app.callback(dash.Output('KaKaotalkclosebutton', 'style'), [dash.Input('searchinput','value'),dash.Input('KaKaotalkclosebutton','n_clicks')])
 def destroy_searchoutput2(value, n_clicks):
