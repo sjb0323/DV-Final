@@ -1,13 +1,13 @@
 # DV-Final
 
-#Goal
+**#Goal**
 Want some logical data-driven insights to improve advertising impacts
 Want easily visualized results to persuade and communicate with investors
 
-Target User
+**Target User**
 User who are working at a small company and seeking advertisement optimization
 
-Tasks
+**Tasks**
 User check the target SNS application and target user traits.
 User set the time to target the application usage and the number of users
 User check detail interaction events with packages(i.e. notification interaction).
