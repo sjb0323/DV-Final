@@ -1,1 +1,2 @@
-worker: python parsingPost.py
+
+web: gunicorn dash_file:serverh

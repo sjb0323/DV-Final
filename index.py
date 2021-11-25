@@ -19,7 +19,7 @@ server = Flask(__name__)
 stylesheets = [dbc.themes.FLATLY, dbc.icons.BOOTSTRAP,"/static/style.css"]
 app = dash.Dash(__name__, server=server, external_stylesheets = stylesheets)
 
-AppColorDict = {"KaKaotalk" : ["yellow","black"], "Facebook" : ["Blue","white"], "Instagram" : ["Pink","black"], "NAVER" : ["green","white"], "Chrome" : ["gray","black"], "Youtube" : ["red","white"], "Messenger" : ["black","white"]}
+AppColorDict = {"KaKaotalk" : ["darkorange","white"], "Facebook" : ["dodgerBlue","white"], "Instagram" : ["BlueViolet","white"], "NAVER" : ["forestgreen","white"], "Chrome" : ["darkslategrey","white"], "Youtube" : ["red","white"], "Messenger" : ["fuchsia","white"]}
 
 daterange = pd.date_range(start=dt.datetime(2000, 1, 1)+ dt.timedelta(hours=9),end=dt.datetime(2000, 1, 2)+ dt.timedelta(hours=9),freq='S')
 
@@ -99,7 +99,7 @@ app.layout = html.Div([
         html.Div([                   
             dbc.Row(
                 dbc.Col(
-                    html.H3("Dashboard", className = "m-2"), style = {"color":"white"}
+                    html.H3("App Usage Data by Time, Interaction and Trait", className = "m-2"), style = {"color":"white"}
                 ), className="navbar navbar-expand-lg navbar-dark bg-primary"
             ),
 
@@ -109,6 +109,7 @@ app.layout = html.Div([
                     dbc.Row(
                         dbc.Col(
                             html.Div(["",
+                            html.Br(),
                             html.H5("Select Time"),
                             dcc.RangeSlider(
                                 id='time_slider',
@@ -145,11 +146,13 @@ app.layout = html.Div([
                     dbc.Row(dbc.Col(html.Div([
                     html.Br(),
                     html.Br(),
-                    html.H5('Stacked Application Uses'),
+                    html.H5('Stacked Application Uses (5 minute interval'),
                     dcc.Graph(id='second-graph')]),width = 12, style = {"background":"white"})),
                 ], width = 9),
 
                 dbc.Col([
+                    html.Br(),
+                    
                     html.H3("Options"),
                     
                     #Search
@@ -366,25 +369,32 @@ def update_main(value, n_clicks, slider_range):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid'],
                         mode='lines',
-                        name='Chrome'))
+                        name='Chrome',
+                        marker_color=AppColorDict['Chrome'][0]))
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'],
                         mode='lines',
-                        name='YouTube'))
+                        name='YouTube',
+                        marker_color=AppColorDict['Youtube'][0]))
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid'],
                         mode='lines',
-                        name='KaKaoTalk'))
+                        name='KaKaoTalk',
+                        marker_color=AppColorDict['KaKaotalk'][0]))
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid'],
                         mode='lines',
-                        name='Facebook'))
+                        name='Facebook',
+                        marker_color=AppColorDict['Facebook'][0]))
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid'],
                         mode='lines',
-                        name='Instagram'))
+                        name='Instagram',
+                        marker_color=AppColorDict['Instagram'][0]))
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid'],
                         mode='lines',
-                        name='Messenger'))
+                        name='Messenger',
+                        marker_color=AppColorDict['Messenger'][0]))
     fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'],
                         mode='lines',
-                        name='NAVER'))
+                        name='NAVER',
+                        marker_color=AppColorDict['NAVER'][0]))
     fig.update_layout(
         yaxis_title="Number of Users",
         margin=dict(b=20, l=20, r=160, t=20),
@@ -421,15 +431,15 @@ def update_second(value, n_clicks, slider_range):
     df_grouped = df_data.groupby(['appName', 'time_id']).count()
     df_grouped.reset_index(inplace=True)
 
-
+    print(AppColorDict['Chrome'][0])
     fig = go.Figure(data=[
-        go.Bar(name='Chrome', x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid']),
-        go.Bar(name='YouTube', x=df_grouped[df_grouped['appName'] == 'YouTube']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid']),
-        go.Bar(name='KakaoTalk', x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid']),
-        go.Bar(name='Facebook', x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid']),
-        go.Bar(name='Instagram', x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid']),
-        go.Bar(name='Messenger', x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid']),
-        go.Bar(name='NAVER', x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'])            
+        go.Bar(name='Chrome', x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid'], marker_color=AppColorDict['Chrome'][0]),
+        go.Bar(name='YouTube', x=df_grouped[df_grouped['appName'] == 'YouTube']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'], marker_color=AppColorDict['Youtube'][0]),
+        go.Bar(name='KakaoTalk', x=df_grouped[df_grouped['appName'] == '카카오톡']['time_id'], y=df_grouped[df_grouped['appName'] == '카카오톡']['pid'], marker_color=AppColorDict['KaKaotalk'][0]),
+        go.Bar(name='Facebook', x=df_grouped[df_grouped['appName'] == 'Facebook']['time_id'], y=df_grouped[df_grouped['appName'] == 'Facebook']['pid'], marker_color=AppColorDict['Facebook'][0]),
+        go.Bar(name='Instagram', x=df_grouped[df_grouped['appName'] == 'Instagram']['time_id'], y=df_grouped[df_grouped['appName'] == 'Instagram']['pid'], marker_color=AppColorDict['Instagram'][0]),
+        go.Bar(name='Messenger', x=df_grouped[df_grouped['appName'] == 'Messenger']['time_id'], y=df_grouped[df_grouped['appName'] == 'Messenger']['pid'], marker_color=AppColorDict['Messenger'][0]),
+        go.Bar(name='NAVER', x=df_grouped[df_grouped['appName'] == 'NAVER']['time_id'], y=df_grouped[df_grouped['appName'] == 'NAVER']['pid'], marker_color=AppColorDict['NAVER'][0])            
     ])
 
     fig.update_layout(barmode='stack')
@@ -472,7 +482,14 @@ def update_pie(value,slider_range):
     print(df_grouped)
     
     df = px.data.tips()
-    fig = px.pie(df_grouped, values='pid', names='appName')
+    fig = px.pie(df_grouped, values='pid', names='appName', color='appName',
+                 color_discrete_map={"카카오톡" : "darkorange", 
+                                     "Facebook" : "dodgerBlue", 
+                                     "Instagram" : "BlueViolet", 
+                                     "NAVER" : "forestgreen", 
+                                     "Chrome" : "darkslategrey", 
+                                     "YouTube" : "red", 
+                                     "Messenger" : "fuchsia"})
     fig.update_traces(textposition='outside', textinfo='percent+label')
     fig.update_layout(
         showlegend = False,
@@ -610,7 +627,7 @@ def update_chart(value,slider_range):
             size = 7, 
             color = 'black', 
             symbol='line-ns',
-            opacity = 0.1,
+            opacity = 0.2,
             line = dict(
                 color='red',
                 width=2
