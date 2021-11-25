@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from dash.exceptions import PreventUpdate
 from flask import Flask
 from dash.exceptions import PreventUpdate
 import dash
