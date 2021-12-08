@@ -309,7 +309,7 @@ app.layout = html.Div([
                     html.P("Hover over the mark to check User ID and App Name"),
                     dcc.Graph(
                         id="interaction-mark",
-                        hoverData={'points': [{'hovertext': 'P0701'}]}
+                        hoverData={'points': [{'hovertext': '701'}]}
                     )]), width = 6),
 
                 dbc.Col(html.Div(["",
@@ -340,6 +340,7 @@ app.layout = html.Div([
     dash.dependencies.Output('main-graph', 'figure'),[dash.dependencies.Input("searchinput", "value"), dash.dependencies.Input("apply_button", "n_clicks"),dash.dependencies.Input("time_slider", "value")]
 )
 def update_main(value, n_clicks, slider_range):
+    global applyUserInfo
     df_data = final_df.copy()
     low, high = slider_range
     low=low%86400
@@ -359,6 +360,8 @@ def update_main(value, n_clicks, slider_range):
     df_data = df_data[df_data['is_interaction'] == False]
     df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
     df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+    print("applyUserInfo-1")
+    print(applyUserInfo['UID'].unique())
 
     df_data.sort_values('time_id', inplace=True)
     df_data['appName'].unique()
@@ -371,7 +374,7 @@ def update_main(value, n_clicks, slider_range):
                         mode='lines',
                         name='Chrome',
                         marker_color=AppColorDict['Chrome'][0]))
-    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'],
+    fig.add_trace(go.Scatter(x=df_grouped[df_grouped['appName'] == 'YouTube']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'],
                         mode='lines',
                         name='YouTube',
                         marker_color=AppColorDict['Youtube'][0]))
@@ -407,6 +410,7 @@ def update_main(value, n_clicks, slider_range):
     dash.dependencies.Output('second-graph', 'figure'),[dash.dependencies.Input("searchinput", "value"),dash.dependencies.Input("apply_button", "n_clicks"), dash.dependencies.Input("time_slider", "value")]
 )
 def update_second(value, n_clicks, slider_range):
+    global applyUserInfo
     df_data = final_df.copy()
     low, high = slider_range
     low=low%86400
@@ -425,13 +429,14 @@ def update_second(value, n_clicks, slider_range):
     df_data = df_data.loc[df_data['appName'].isin(value)]
     df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
     df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
-
+    print("applyUserInfo-2")
+    print(applyUserInfo['UID'].unique())
     df_data.sort_values('time_id', inplace=True)
     df_data['appName'].unique()
     df_grouped = df_data.groupby(['appName', 'time_id']).count()
     df_grouped.reset_index(inplace=True)
 
-    print(AppColorDict['Chrome'][0])
+
     fig = go.Figure(data=[
         go.Bar(name='Chrome', x=df_grouped[df_grouped['appName'] == 'Chrome']['time_id'], y=df_grouped[df_grouped['appName'] == 'Chrome']['pid'], marker_color=AppColorDict['Chrome'][0]),
         go.Bar(name='YouTube', x=df_grouped[df_grouped['appName'] == 'YouTube']['time_id'], y=df_grouped[df_grouped['appName'] == 'YouTube']['pid'], marker_color=AppColorDict['Youtube'][0]),
@@ -450,159 +455,43 @@ def update_second(value, n_clicks, slider_range):
     )
     return fig
 
-@app.callback(
-    dash.dependencies.Output('pie-plot', 'figure'),
-    [dash.dependencies.Input("searchinput", "value") ,dash.dependencies.Input("time_slider", "value")])
-def update_pie(value,slider_range):
-    df_data = final_df.copy()
-    low, high = slider_range
-    low=low%86400
-    high=(high-1)%86400
 
-    if('KaKaotalk' in value):
-        value[value.index('KaKaotalk')] = '카카오톡'
-    if ('Youtube' in value):
-        value[value.index('Youtube')] = 'YouTube'
-
-    df_data = df_data.loc[df_data['appName'].isin(value)]
-
-    mask = (df_data['second'] > low) & (df_data['second'] < high)
-    df_data=df_data[mask]
-
-
-    df_data = df_data[df_data['is_interaction'] == False]
-    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
-    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
-
-    df_data.sort_values('time_id', inplace=True)
-    df_data['appName'].unique()
-    df_grouped = df_data.groupby(['appName']).count()
-    df_grouped.reset_index(inplace=True)
-
-    print(df_grouped)
-    
-    df = px.data.tips()
-    fig = px.pie(df_grouped, values='pid', names='appName', color='appName',
-                 color_discrete_map={"카카오톡" : "darkorange", 
-                                     "Facebook" : "dodgerBlue", 
-                                     "Instagram" : "BlueViolet", 
-                                     "NAVER" : "forestgreen", 
-                                     "Chrome" : "darkslategrey", 
-                                     "YouTube" : "red", 
-                                     "Messenger" : "fuchsia"})
-    fig.update_traces(textposition='outside', textinfo='percent+label')
-    fig.update_layout(
-        showlegend = False,
-        margin=dict(b=0, l=0, r=0, t=80)
-    )        
-    return fig
-b=1
-# Update polar chart based on User ID
-@app.callback(
-    dash.dependencies.Output('polar-plot', 'figure'),
-    [dash.dependencies.Input('interaction-mark', 'hoverData'),
-     dash.dependencies.Input('user-id-label', 'value')])
-def update_user_Id(hoverData,value):
-    global recent_trait
-    a=value
-    userId=0
-    userId=hoverData['points'][0]['hovertext']
-    print(userId)
-    userNumb=int(userId)
-
-    polar_df=pd.DataFrame()
-
-    polar_df['Trait']= ['O','C','N','E','A']
-
-    data_df=userInfo_df.loc[userInfo_df['UID']==userNumb]
-    data=[]
-    
-    print("!!!!!!!!!!!")
-
-    for i in range(0,8,1):
-        data.append(data_df.iloc[0][i])
-    polar_df['Score']=data[1:6]
-    
-    recent_trait=data
-
-    polar_df['Detail'] = ['openness', 'conscientiousness', 'neuroticism', 'extraversion',' agreeableness']
-    polar_df['Description'] = ['openness', 'conscientiousness', 'neuroticism', 'extraversion',' agreeableness']
-
-    fig=px.line_polar(
-        polar_df, 
-        r="Score", 
-        theta="Trait", 
-        range_r=[0,15], 
-        line_close=True,
-        text="Score",
-        hover_data={
-            'Score' : True,
-            'Trait' : False,
-            'Detail' : True,
-        }
-    )
-    fig.update_traces(textposition='top center', fill='toself')
-    fig.update_layout(
-        polar=dict(
-            radialaxis=dict(
-                visible=False,
-                range=[0,15]
-            )
-        ),
-        margin=dict(b=100, l=20, r=20, t=20)
-    )    
-    
-    return fig
-
-#Update User ID from Interaction Mark Hover 
-@app.callback(
-    dash.dependencies.Output('user-id-label', 'children'),
-    [dash.dependencies.Input('interaction-mark', 'hoverData')])
-def update_user_Id(hoverData):
-    userId=hoverData['points'][0]['hovertext']
-    return 'This trait is from user id : {}'.format(userId)
-    
-#Time Slider
-@app.callback(
-    dash.dependencies.Output('time-range-label', 'children'),
-    [dash.dependencies.Input('time_slider', 'value')])
-def _update_time_range_label(year_range):
-    low, high = year_range
-    low=low%86400+32400
-    high=(high-1)%86400+32400
-
-    return 'Selected time range : {} ~ {}'.format(unixToDatetime(year_range[0]),
-                                  unixToDatetime(year_range[1]))
 
 #Interaction mark
 @app.callback(
     dash.dependencies.Output("interaction-mark", "figure"), 
-    [dash.dependencies.Input("searchinput", "value"),dash.dependencies.Input("time_slider", "value")])
-def update_chart(value,slider_range):
-    global interaction_df
+    [dash.dependencies.Input("searchinput", "value"),dash.dependencies.Input("apply_button", "n_clicks"),dash.dependencies.Input("time_slider", "value")])
+def update_chart(value,a,slider_range):
+    df_data = interaction_df.copy()
     low, high = slider_range
     low=low%86400
     high=(high-1)%86400
     
-    df=interaction_df
-    applyUserInfo['UID'].astype(str)
     filtered= pd.DataFrame()
-   
-    filtered= df = df.loc[df["pid"].isin(applyUserInfo['UID'].unique())]
-    
+ 
+
     if('KaKaotalk' in value):
             value[value.index('KaKaotalk')] = '카카오톡'
     if ('Youtube' in value):
         value[value.index('Youtube')] = 'YouTube'
-
+    
+    
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    df_data = interaction_df.copy()
+    
+    filtered= df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())]
     filtered = filtered.loc[filtered['appName'].isin(value)]
     
-    print(2)
-    print(filtered)
-    print(2)
     mask = (filtered['second'] > low) & (filtered['second'] < high)
     scatter_df=filtered[mask]
-    print(scatter_df)
 
     layout = Layout(plot_bgcolor='rgba(0,0,0,0)')
 
@@ -611,7 +500,6 @@ def update_chart(value,slider_range):
     scatter_copy=pd.DataFrame()
     scatter_copy['Time']=scatter_df['time_id']
     scatter_copy['App Name']=scatter_df['appName']
-
     fig=px.scatter(
         scatter_copy,
         x=scatter_copy['Time'],          
@@ -644,6 +532,129 @@ def update_chart(value,slider_range):
     return fig
 
 
+@app.callback(
+    dash.dependencies.Output('pie-plot', 'figure'),
+    [dash.dependencies.Input("searchinput", "value") ,dash.dependencies.Input("time_slider", "value")])
+def update_pie(value,slider_range):
+    df_data = final_df.copy()
+    low, high = slider_range
+    low=low%86400
+    high=(high-1)%86400
+
+    if('KaKaotalk' in value):
+        value[value.index('KaKaotalk')] = '카카오톡'
+    if ('Youtube' in value):
+        value[value.index('Youtube')] = 'YouTube'
+
+    df_data = df_data.loc[df_data['appName'].isin(value)]
+
+    mask = (df_data['second'] > low) & (df_data['second'] < high)
+    df_data=df_data[mask]
+
+
+    df_data = df_data[df_data['is_interaction'] == False]
+    df_data['pid'] = pd.to_numeric(df_data['pid'].str[1:])
+    df_data = df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())] 
+
+    df_data.sort_values('time_id', inplace=True)
+    df_data['appName'].unique()
+    df_grouped = df_data.groupby(['appName']).count()
+    df_grouped.reset_index(inplace=True)
+
+
+    
+    df = px.data.tips()
+    fig = px.pie(df_grouped, values='pid', names='appName', color='appName',
+                 color_discrete_map={"카카오톡" : "darkorange", 
+                                     "Facebook" : "dodgerBlue", 
+                                     "Instagram" : "BlueViolet", 
+                                     "NAVER" : "forestgreen", 
+                                     "Chrome" : "darkslategrey", 
+                                     "YouTube" : "red", 
+                                     "Messenger" : "fuchsia"})
+    fig.update_traces(textposition='outside', textinfo='percent+label')
+    fig.update_layout(
+        showlegend = False,
+        margin=dict(b=0, l=0, r=0, t=80)
+    )        
+    return fig
+b=1
+
+# Update polar chart based on User ID
+@app.callback(
+    dash.dependencies.Output('polar-plot', 'figure'),
+    [dash.dependencies.Input('interaction-mark', 'hoverData'),
+     dash.dependencies.Input('user-id-label', 'children')])
+def update_user_Id(hoverData, value1):
+    global recent_trait
+    a=value1
+    userId=0
+    userId=hoverData['points'][0]['hovertext']
+    userNumb=int(userId)
+
+    polar_df=pd.DataFrame()
+
+    polar_df['Trait']= ['O','C','N','E','A']
+
+    data_df=userInfo_df.loc[userInfo_df['UID']==userNumb]
+    data=[]
+    
+
+    for i in range(0,8,1):
+        data.append(data_df.iloc[0][i])
+    polar_df['Score']=data[1:6]
+    recent_trait=data
+
+    polar_df['Detail'] = ['openness', 'conscientiousness', 'neuroticism', 'extraversion',' agreeableness']
+    polar_df['Description'] = ['openness', 'conscientiousness', 'neuroticism', 'extraversion',' agreeableness']
+    
+
+    fig=px.line_polar(
+        polar_df, 
+        r="Score", 
+        theta="Trait", 
+        range_r=[0,15], 
+        line_close=True,
+        text="Score",
+        hover_data={
+            'Score' : True,
+            'Trait' : False,
+            'Detail' : True,
+        }
+    )
+    fig.update_traces(textposition='top center', fill='toself')
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=False,
+                range=[0,15]
+            )
+        ),
+        margin=dict(b=100, l=20, r=20, t=20)
+    )    
+    
+    return fig
+
+
+#Update User ID from Interaction Mark Hover 
+@app.callback(
+    dash.dependencies.Output('user-id-label', 'children'),
+    [dash.dependencies.Input('interaction-mark', 'hoverData')])
+def update_user_Id(hoverData):
+    userId=hoverData['points'][0]['hovertext']
+    return 'This trait is from user id : {}'.format(userId)
+    
+#Time Slider
+@app.callback(
+    dash.dependencies.Output('time-range-label', 'children'),
+    [dash.dependencies.Input('time_slider', 'value')])
+def _update_time_range_label(year_range):
+    low, high = year_range
+    low=low%86400+32400
+    high=(high-1)%86400+32400
+
+    return 'Selected time range : {} ~ {}'.format(unixToDatetime(year_range[0]),
+                                  unixToDatetime(year_range[1]))
 
 #Connect to O
 global check_click
@@ -670,8 +681,6 @@ def change_values(alls,n_clicks):
     if(n_clicks > check_click ) :
         user_trait=recent_trait
         check_click=n_clicks
-    print(recent_trait)
-    print(user_trait)
     if( user_trait[1]<=9 ) : 
 
         return ["Low"]
@@ -701,8 +710,6 @@ def change_values(alls, n_clicks):
     if(n_clicks > check_click ) :
         user_trait=recent_trait
         check_click=n_clicks
-    print(recent_trait)
-    print(user_trait)
     if( user_trait[2]<=9 ) : 
 
         return ["Low"]
@@ -732,8 +739,6 @@ def change_values(alls, n_clicks):
     if(n_clicks > check_click ) :
         user_trait=recent_trait
         check_click=n_clicks
-    print(recent_trait)
-    print(user_trait)
     if( user_trait[3]<=6 ) : 
 
         return ["Low"]
@@ -763,8 +768,6 @@ def change_values(alls, n_clicks):
     if(n_clicks > check_click ) :
         user_trait=recent_trait
         check_click=n_clicks
-    print(recent_trait)
-    print(user_trait)
     if( user_trait[4]<=7 ) : 
 
         return ["Low"]
@@ -794,8 +797,6 @@ def change_values(alls, n_clicks):
     if(n_clicks > check_click ) :
         user_trait=recent_trait
         check_click=n_clicks
-    print(recent_trait)
-    print(user_trait)
     
     if( user_trait[5]<=9 ) : 
 
@@ -823,8 +824,6 @@ def change_values(alls, n_clicks):
         select_all[5]=alls
         return ["High","Low","Mid"]
 
-    print(recent_trait)
-    print(user_trait)
     
     if( user_trait[7]=='M' ) : 
 
@@ -857,7 +856,6 @@ def change_values(n_clicks, o, c, n, e, a, g, s_n_clicks):
     global e_dict
     global a_dict
     global g_dict
-    print(1)
     if(s_n_clicks > select_check ) :
         o_dict = { 'Low' : True , 'Mid' : True, 'High' : True}
         c_dict = { 'Low' : True , 'Mid' : True, 'High' : True}
@@ -866,7 +864,6 @@ def change_values(n_clicks, o, c, n, e, a, g, s_n_clicks):
         a_dict = { 'Low' : True , 'Mid' : True, 'High' : True}
         g_dict = { 'Male' : True , 'Female' : True}
         select_check=s_n_clicks
-        print(o_dict)
     else :
         for i in ["Low","Mid","High"] :
             if i in o :
@@ -923,8 +920,6 @@ def change_values(n_clicks, o, c, n, e, a, g, s_n_clicks):
         user_trait=recent_trait
         check_click=n_clicks
 
-    print(len(applyUserInfo))
-    print(len(filter))
     return "{} users will be displayed".format(len(filter))
 
 
