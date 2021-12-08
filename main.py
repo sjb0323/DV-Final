@@ -1032,4 +1032,5 @@ def destroy_searchoutput2(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5,
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.server(host='0.0.0.0', port=8080, debug=True)
+
