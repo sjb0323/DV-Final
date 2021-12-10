@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from dash.exceptions import PreventUpdate
 from flask import Flask
 from dash.exceptions import PreventUpdate
 import dash
@@ -48,7 +47,16 @@ def unixToDatetime(unix):
     ''' Convert unix timestamp to datetime. '''
     return pd.to_datetime([unix],unit='s').time[0]
 
-
+print("-")
+print("-")
+print("-")
+print("-")
+print(unixTimeMillis(daterange.min()))
+print(unixTimeMillis(daterange.max()))
+print("-")
+print("-")
+print("-")
+print("-")
 # Read The Data
 
 userInfo_df = pd.read_csv('data/user_info.csv')
@@ -59,7 +67,7 @@ interaction_df = final_df.loc[final_df['is_interaction']==True]
 interaction_df['time_id'] = pd.to_datetime(interaction_df.time_id)
 interaction_df['second'] = interaction_df.time_id.values.astype(np.int64)/1000000000%86400
 interaction_df['pid'] = interaction_df['pid'].map(lambda x: x.lstrip('P'))
-interaction_df['pid']=pd.to_numeric(interaction_df['pid'].str[1:])
+interaction_df['pid']=pd.to_numeric(interaction_df['pid'])
 
 final_df['time_id'] = pd.to_datetime(final_df.time_id)
 final_df['second'] = final_df.time_id.values.astype(np.int64)/1000000000%86400
@@ -113,24 +121,23 @@ app.layout = html.Div([
                             html.H5("Select Time"),
                             dcc.RangeSlider(
                                 id='time_slider',
-                                min = unixTimeMillis(daterange.min()),
-                                max = unixTimeMillis(daterange.max()),
-                                value = [unixTimeMillis(daterange.min()),
-                                        unixTimeMillis(daterange.max())],
+                                min = 0,
+                                max = 86400,
+                                value = [0,86400],
                                 marks={
-                                    unixTimeMillis(daterange.min()): {'label': '0H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 2: {'label': '2H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 4: {'label': '4H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 6: {'label': '6H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 8: {'label': '8H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 10: {'label': '10H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 12: {'label': '12H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 14: {'label': '14H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 16: {'label': '16H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 18: {'label': '18H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 20: {'label': '20H'},
-                                    unixTimeMillis(daterange.min()) + 3600 * 22: {'label': '22H'},
-                                    unixTimeMillis(daterange.max()): {'label': '24H'},
+                                    0: {'label': '0H'},
+                                    0 + 3600 * 2: {'label': '2H'},
+                                    0 + 3600 * 4: {'label': '4H'},
+                                    0 + 3600 * 6: {'label': '6H'},
+                                    0 + 3600 * 8: {'label': '8H'},
+                                    0 + 3600 * 10: {'label': '10H'},
+                                    0 + 3600 * 12: {'label': '12H'},
+                                    0 + 3600 * 14: {'label': '14H'},
+                                    0 + 3600 * 16: {'label': '16H'},
+                                    0 + 3600 * 18: {'label': '18H'},
+                                    0 + 3600 * 20: {'label': '20H'},
+                                    0 + 3600 * 22: {'label': '22H'},
+                                    86400: {'label': '24H'},
                                 }
                             ),
                             html.Label('Selected time range : 00:00:00 ~ 23:59:59', id='time-range-label'),
@@ -486,7 +493,9 @@ def update_chart(value,a,slider_range):
     df_data = interaction_df.copy()
     df_data = interaction_df.copy()
     df_data = interaction_df.copy()
-    
+    df_data = interaction_df.copy()
+    print("!!!!!")
+    print(df_data['pid'].unique())
     filtered= df_data.loc[df_data["pid"].isin(applyUserInfo['UID'].unique())]
     filtered = filtered.loc[filtered['appName'].isin(value)]
     
@@ -649,6 +658,7 @@ def update_user_Id(hoverData):
     dash.dependencies.Output('time-range-label', 'children'),
     [dash.dependencies.Input('time_slider', 'value')])
 def _update_time_range_label(year_range):
+    print(year_range)
     low, high = year_range
     low=low%86400+32400
     high=(high-1)%86400+32400
@@ -1032,4 +1042,5 @@ def destroy_searchoutput2(n_clicks1, n_clicks2, n_clicks3, n_clicks4, n_clicks5,
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.server(host='0.0.0.0', port=8080, debug=True)
+
